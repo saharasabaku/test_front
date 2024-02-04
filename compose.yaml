@@ -1,0 +1,14 @@
+services:
+  front:
+    container_name: front_dev
+    hostname: example.com
+    build:
+      context: ./
+      dockerfile: ./docker/frontend
+    volumes:
+      - ./workspase:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    tty: true
+    privileged: true
+    ports:
+      - 80:80
